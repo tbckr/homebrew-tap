@@ -7,15 +7,15 @@ class Sgpt < Formula
 enabling users to run queries, generate shell commands, produce code,
 and create images from text directly from the terminal."
   homepage ""
-  version "1.11.0"
+  version "1.12.0"
   license "MIT"
 
   depends_on "go" => :optional
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/tbckr/sgpt/releases/download/v1.11.0/sgpt_Darwin_arm64.tar.gz"
-      sha256 "9582bea651eb0c824d7da5cc42b5ea671b46fb8098c9f449845422593fa1aca1"
+    if Hardware::CPU.intel?
+      url "https://github.com/tbckr/sgpt/releases/download/v1.12.0/sgpt_Darwin_x86_64.tar.gz"
+      sha256 "279a32892c42cc2438f496203210aa7a8472d014bdb9e729ee3629f1329c543d"
 
       def install
         bin.install "sgpt"
@@ -25,9 +25,9 @@ and create images from text directly from the terminal."
         man1.install "manpages/sgpt.1.gz"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/tbckr/sgpt/releases/download/v1.11.0/sgpt_Darwin_x86_64.tar.gz"
-      sha256 "a407063716ec8fec9132affbc82450601b3fcac1e5325457a85f148a51f3155b"
+    if Hardware::CPU.arm?
+      url "https://github.com/tbckr/sgpt/releases/download/v1.12.0/sgpt_Darwin_arm64.tar.gz"
+      sha256 "d9238b01806123be61411a03114cf621a6beaffc80cae75c4f33ed50b01c387c"
 
       def install
         bin.install "sgpt"
@@ -41,8 +41,8 @@ and create images from text directly from the terminal."
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/tbckr/sgpt/releases/download/v1.11.0/sgpt_Linux_x86_64.tar.gz"
-      sha256 "edbd905025b2a4690f761133004eed6005eb578ef3c2b00bb192683b5ebae55f"
+      url "https://github.com/tbckr/sgpt/releases/download/v1.12.0/sgpt_Linux_x86_64.tar.gz"
+      sha256 "300867df4019324faa958990ef97137bdb070c8b7c7cc091b6cbedd3af9a4fbc"
 
       def install
         bin.install "sgpt"
@@ -53,8 +53,8 @@ and create images from text directly from the terminal."
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tbckr/sgpt/releases/download/v1.11.0/sgpt_Linux_arm64.tar.gz"
-      sha256 "4fdfe78a3f90b8c30c4576d9d4f84f3300f953f47a39983696b8b285dad89869"
+      url "https://github.com/tbckr/sgpt/releases/download/v1.12.0/sgpt_Linux_arm64.tar.gz"
+      sha256 "f5121e008a7c88eb681690ec142332eff83603d06e444da6820800d5158efacd"
 
       def install
         bin.install "sgpt"
