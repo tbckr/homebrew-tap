@@ -7,13 +7,13 @@ class Sgpt < Formula
 enabling users to run queries, generate shell commands, produce code,
 and create images from text directly from the terminal."
   homepage ""
-  version "2.5.1"
+  version "2.6.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/tbckr/sgpt/releases/download/v2.5.1/sgpt_Darwin_x86_64.tar.gz"
-      sha256 "9671815303d7895af41a2c044af25b5a645ff6b4c5acb9c8f245872b9c4b0139"
+      url "https://github.com/tbckr/sgpt/releases/download/v2.6.0/sgpt_Darwin_x86_64.tar.gz"
+      sha256 "26ce97867a3ebd5e07332228ba0d9794cf640b1cdea8f6f0c36f20eb15cd90b3"
 
       def install
         bin.install "sgpt"
@@ -24,8 +24,8 @@ and create images from text directly from the terminal."
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/tbckr/sgpt/releases/download/v2.5.1/sgpt_Darwin_arm64.tar.gz"
-      sha256 "adca7ea5152a8267127b124fab54c32073c3d0052340c06ff4f1e333fbd21672"
+      url "https://github.com/tbckr/sgpt/releases/download/v2.6.0/sgpt_Darwin_arm64.tar.gz"
+      sha256 "a9ce437929e40db53d04d618b1493a26ce9648ef653329ca0e33bd674d1c6d70"
 
       def install
         bin.install "sgpt"
@@ -38,9 +38,9 @@ and create images from text directly from the terminal."
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/tbckr/sgpt/releases/download/v2.5.1/sgpt_Linux_x86_64.tar.gz"
-      sha256 "d6624821239a28b1655ff34b42a5134641f3d1f371fe7895ab59294dc551275b"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/tbckr/sgpt/releases/download/v2.6.0/sgpt_Linux_arm64.tar.gz"
+      sha256 "144340c85dec0d575a278f33cf416aabb52f00cfedbfccfa9e9ac2307b68539d"
 
       def install
         bin.install "sgpt"
@@ -50,9 +50,9 @@ and create images from text directly from the terminal."
         man1.install "manpages/sgpt.1.gz"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/tbckr/sgpt/releases/download/v2.5.1/sgpt_Linux_arm64.tar.gz"
-      sha256 "2429b12bd868fb70c2cbec44fca4cefbc8561287afedfc3337bc78e37e89c609"
+    if Hardware::CPU.intel?
+      url "https://github.com/tbckr/sgpt/releases/download/v2.6.0/sgpt_Linux_x86_64.tar.gz"
+      sha256 "4a29f331f99fe55b11c430350a724ec6cb8ac58d119e176cadd747365c7c030b"
 
       def install
         bin.install "sgpt"
